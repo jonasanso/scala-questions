@@ -48,9 +48,11 @@ This way every actor is relieved of the responsibility of handling unexpected er
 
 ### What is the meaning of the keyword sealed in scala? 
 
-Scala as an object oriented functional programming language allows inheritance. The keyword sealed means that inheritance of this class or trait is only allowed withing the same file. 
+Scala as an object oriented functional programming language allows inheritance. The keyword sealed means that inheritance of this class or trait is only allowed withing the same source file. However, subclasses of a sealed class can inherited anywhere. 
 
-Why is that interesting? Because when you are doing a matching over the super class you can patter match any of the subclasses and obtain all the data you need in your function, and if the pattern matching implemented does not cover all the possibilities the compiler will be able to tell you that.
+Why is that interesting? Because when you are doing a matching over the super class you can patter match any of the subclasses, and if the pattern matching implemented does not cover all the possibilities the compiler will be able to tell you that.
 
-When you are designing you algebraic data type, or just your hierarchi of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
+When you are designing you algebraic data type, or just your hierarchy of classes using a sealed trait or abstract class can give you better static analysis on your code, reducing the possibility of runtime errors.
 
+#### References
+ - http://www.scala-lang.org/old/node/123

@@ -38,7 +38,7 @@ Scala as an object oriented functional programming language allows inheritance. 
 
 Why is that interesting? Because when you are doing a matching over the super class you can patter match any of the subclasses and obtain all the data you need in your function, and if the pattern matching implemented does not cover all the possibilities the compiler will be able to tell you that.
 
-When you are designing you algebraic data type, or just your hierarchi of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
+When you are designing you algebraic data type, or just your hierarchy of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
 
 
 

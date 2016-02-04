@@ -17,6 +17,11 @@ Why is that interesting?
 
 When it is not suitable to use a case class? It an instance can perform statuful computation or complex behaviour a case class should not be used.
 
+#### References
+ - http://stackoverflow.com/questions/2312881
+ - http://twitter.github.io/effectivescala/#Functional%20programming-Case%20classes%20as%20algebraic%20data%20types
+ 
+
 ### How can you get the value of a Future?
 
 If you have a Future holding some future value, you can access it and use it or transform it using map or flatmap, this will return another Future holding some future value related to the first one. 
@@ -33,9 +38,13 @@ If you have a for comprehension that execute two independent calculations sequen
 
 The supervision strategy is a powerful tool in Akka actors to create resilience applications, following the principle "Let it crash".
 
-The actors are organized as a tree, there is a root actor that is the ancestor of all the actors in an application. Every actor supervise its children and can apply different strategies to handle errors occurred in them. Typical strategies are restart the failing child, or restart all the children, or ignore the problem. 
+The actors are organized as a tree, there is a root actor that is the ancestor of all the actors in an application. Every actor supervise its children and defines the strategy to handle the different errors occurred in them. An actor can use a one-for-one strategy, meaning that its children are treated separately or a one-for-all strategy meaning that the decision will be applied to all the children. Typical actins are resume, restart, stop and scalate. 
 
 This way every actor is relieved of the responsibility of handling unexpected errors. The parent is in a better position to assess what is the best strategy and in case it is not prepared for that, the error will propagate up until the error is handled. 
+
+#### References
+ - http://doc.akka.io/docs/akka/2.4.1/scala/fault-tolerance.html
+
 
 ### What is the meaning of the keyword sealed in scala? 
 
@@ -45,8 +54,3 @@ Why is that interesting? Because when you are doing a matching over the super cl
 
 When you are designing you algebraic data type, or just your hierarchi of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
 
-
-
-## References
- - http://stackoverflow.com/questions/2312881
- - http://twitter.github.io/effectivescala/#Functional%20programming-Case%20classes%20as%20algebraic%20data%20types

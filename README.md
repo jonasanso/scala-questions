@@ -7,10 +7,15 @@ This is a compilation of questions in interviews for scala roles and the best an
 ## Questions
 ### What is a case class?
 
-I like to say that a case class is a class with super powers. 
+I like to say that a case class is a class with super powers for holding inmutable data. 
 It has a concise syntax to define a class with some inmutable public attributes and it provides implementations for pretty print, apply and unapply among other super powers.
 
-Why is that interesting? Having the apply and unapply methods implemented for you, you can use pattern matching over your class, one of the most powerful techniques in functional programming. 
+Why is that interesting? 
+
+ - Having the apply and unapply methods implemented for you, you can use pattern matching over your class, one of the most powerful techniques in functional programming.
+ - They are used to define algebraic data types, normaly extending a sealed trait. 
+
+When it is not suitable to use a case class? It an instance can perform statuful computation or complex behaviour a case class should not be used.
 
 ### How can you get the value of a Future?
 
@@ -38,8 +43,10 @@ Scala as an object oriented functional programming language allows inheritance. 
 
 Why is that interesting? Because when you are doing a matching over the super class you can patter match any of the subclasses and obtain all the data you need in your function, and if the pattern matching implemented does not cover all the possibilities the compiler will be able to tell you that.
 
-When you are designing you algebraic data type, or just your hierarchy of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
+When you are designing you algebraic data type, or just your hierarchi of classes using a sealed trait or class can give you better static analysis on your code, reducing the possibility of bugs.
 
 
 
-
+## References
+ - http://stackoverflow.com/questions/2312881
+ - http://twitter.github.io/effectivescala/#Functional%20programming-Case%20classes%20as%20algebraic%20data%20types

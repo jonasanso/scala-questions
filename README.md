@@ -56,3 +56,11 @@ When you are designing you algebraic data type, or just your hierarchy of classe
 
 #### References
  - http://www.scala-lang.org/old/node/123
+
+
+### What are the different collections in scala?
+
+### What is the difference between Vector and List?
+
+### How a Set avoids duplicates?
+

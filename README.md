@@ -60,7 +60,26 @@ When you are designing you algebraic data type, or just your hierarchy of classe
 
 ### What are the different collections in scala?
 
+Collections are divided in 2 big groups, mutable and inmutable.
+Both groups have:
+- Seqs  : Ordered elements. Divided in two groups 
+-- Indexed : Vetor, String, Array, Range 
+-- Linear  : List , Stream, Queue, Stack
+- Sets  : Unique elements
+- Maps  : Key to Value store
+I use mainly inmutable collections and I leave mutable ones for extreme scenarios:
+- Performance is a huge gain (never ecountered the case)
+- In thread safe code like actors, if there is no simpler alternative (prefer var inmutable over val mutable)
+- Java interop, force to use mutable types but I transform to inmutable as soon as possible in the scala code
+
+
 ### What is the difference between Vector and List?
+Vector is an indexed seq while List is a linear seq.
+From an algebraicic perspective if you use a List you are implying that your only use will be full traversals O(n) while with Vector you imply that your data is ordered and finite. 
+
+This has some implications in the performance, being vector more performant in most of the scenarios given a high number of elements.
 
 ### How a Set avoids duplicates?
+In Sets of size 1 to 4 equals is used directly
+For bigger sets the HashSet implementation is used that improves performance using the hashcodes
 

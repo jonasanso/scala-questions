@@ -63,10 +63,11 @@ When you are designing you algebraic data type, or just your hierarchy of classe
 Collections are divided in 2 big groups, mutable and inmutable.
 Both groups have:
 - Seqs  : Ordered elements. Divided in two groups 
--- Indexed : Vetor, String, Array, Range 
--- Linear  : List , Stream, Queue, Stack
+ - Indexed : Vetor, String, Array, Range 
+ - Linear  : List , Stream, Queue, Stack
 - Sets  : Unique elements
 - Maps  : Key to Value store
+
 I use mainly inmutable collections and I leave mutable ones for extreme scenarios:
 - Performance is a huge gain (never ecountered the case)
 - In thread safe code like actors, if there is no simpler alternative (prefer var inmutable over val mutable)
@@ -83,3 +84,16 @@ This has some implications in the performance, being vector more performant in m
 In Sets of size 1 to 4 equals is used directly
 For bigger sets the HashSet implementation is used that improves performance using the hashcodes
 
+### What is an object and what makes a companion object special in scala?
+An object is a singleton in scala, the compiler generates code for a thread-safe singleton so we do not have to.
+An object contains *static* functions and is the place for the `apply` and `unaply` functions that allow pattern matching and the avoidance of `new`. 
+A companion object has the same name than its companion class and it is in the same package. 
+A companion object and its class have mutual access to private members of each other.   
+
+#### References
+- https://docs.scala-lang.org/tour/singleton-objects.html
+
+### What are the diffences between an abstract class and a trait?
+Abstract classes can have constructor parameters while traits can't. 
+A class can inherit multiple traits but only one abstract class. 
+Traits are stackable while abstract classes are not.
